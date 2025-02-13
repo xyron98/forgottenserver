@@ -1,10 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb
 {
-	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"name": "C++ and MariaDB",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"features": {
 		"ghcr.io/msclock/features/vcpkg:2": {
 			"vcpkgversion": "stable",
@@ -17,10 +17,8 @@
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "gcc -v",
+	// This is the recommended way to access the container from the host
+	// "forwardPorts": [3306],
 
 	// Configure tool-specific properties.
 	// "customizations": {},

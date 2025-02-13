@@ -1,5 +1,13 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04
 
+# Everything below this is needed for installing MariaDB
+# Instructions are copied and modified from: https://mariadb.com/docs/clients/mariadb-connectors/connector-cpp/install/
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install curl
+
+COPY ./install-mariadb.sh /tmp/
+RUN chmod +x /tmp/install-mariadb.sh && /tmp/install-mariadb.sh && rm -f /tmp/install-mariadb.sh
+
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="3.22.2"
 
 # Optionally install the cmake for vcpkg
