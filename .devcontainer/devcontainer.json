@@ -4,6 +4,13 @@
 	"name": "C++",
 	"build": {
 		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/msclock/features/vcpkg:2": {
+			"vcpkgversion": "stable",
+			"vcpkgroot": "/usr/local/vcpkg",
+			"vcpkgdownload": "/usr/local/vcpkg-downloads"
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
